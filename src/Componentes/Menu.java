@@ -123,12 +123,17 @@ public class Menu extends javax.swing.JPanel {
         scroll = new javax.swing.JScrollPane();
         panelMenu = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(37, 37, 38));
+
+        jLabel1.setBackground(new java.awt.Color(37, 37, 38));
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/jose/icon/analisis.png"))); // NOI18N
         jLabel1.setText("Dashboard");
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
+
+        panelMenu.setBackground(new java.awt.Color(37, 37, 38));
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);

@@ -2,7 +2,6 @@ package Componentes;
 
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
-import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import org.jdesktop.animation.timing.Animator;

@@ -30,19 +30,19 @@ public class LoginController implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnLogin) {
             if (vista.txtUsuario.getText().equals("") || String.valueOf(vista.txtClave.getPassword()).equals("")) {
-                MessageAlerts.getInstance().showMessage("NO DEJES ESPACIOS EN BLANCO", "Campo vació", MessageAlerts.MessageType.WARNING);
+               // MessageAlerts.getInstance().showMessage("NO DEJES ESPACIOS EN BLANCO", "Campo vació", MessageAlerts.MessageType.WARNING);
             } else {
                 String usuario = vista.txtUsuario.getText();
                 String clave = String.valueOf(vista.txtClave.getPassword());
                 al = alDao.login(usuario, clave);
                 if (al.getUsuario() != null) {
-                    MessageAlerts.getInstance().showMessage("Hola bienvenido", "Éxito", MessageAlerts.MessageType.SUCCESS);
+                    //MessageAlerts.getInstance().showMessage("Hola bienvenido", "Éxito", MessageAlerts.MessageType.SUCCESS);
 
                     Aplicacion app = new Aplicacion(al);
                     app.setVisible(true);
                     vista.dispose();
                 } else {
-                    MessageAlerts.getInstance().showMessage("Lo sentimos no se pudo iniciar sesión", "Error", MessageAlerts.MessageType.ERROR);
+                   // MessageAlerts.getInstance().showMessage("Lo sentimos no se pudo iniciar sesión", "Error", MessageAlerts.MessageType.ERROR);
                 }
             }
         }

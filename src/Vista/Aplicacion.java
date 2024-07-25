@@ -5,6 +5,7 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
+import Controlador.CienciasController;
 import Controlador.LoginController;
 import Event.MenuEvent;
 import Modelo.Alumno;
@@ -25,7 +26,6 @@ import javax.swing.UIManager;
 public class Aplicacion extends javax.swing.JFrame {
     // Variables para controlador login
     private Alumno usuario;
-    private InterPerfil interAlumnos;
 
     /**
      * Creates new form Aplicacion
@@ -35,35 +35,37 @@ public class Aplicacion extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("AulaVirtual 1.1 - [Inicio]");
-        ImageIcon icon = new ImageIcon(getClass().getResource("/Img/aulaVirtual.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Img/aprender-en-linea.png"));
         setIconImage(icon.getImage());
+
+
+        lblId.setText(""+usuario.getId());
+        lblNombreUsuario.setText(""+usuario.getNombre());
+        lblApellido.setText(""+usuario.getApellido());
+        lblUsuario.setText(""+usuario.getUsuario());
+        lblClave.setText(""+usuario.getClave());
+        lblPais.setText(""+usuario.getPais());
+        lblSexo.setText(""+usuario.getSexo());
+        lblEstado.setText(""+usuario.getEstado());
         // Iniciar mensaje
        init();
+        CienciasController ciencias = new CienciasController(this); 
+    
         // Iniciar menu
         MenuEvent event = new MenuEvent() {
             @Override
             public void menuSelected(int index) {
                 System.out.println("Selected : " + index);
                 switch (index) {
-                    case 1:
-
+                    case 0:
+                        Aplicacion.this.materialTabbed1.setSelectedIndex(2);
                         break;
                     case 4:
-                        InterCienciasNaturales ciencia = new InterCienciasNaturales();
-                        jDesktopPane1.add(ciencia);
-                        ciencia.setVisible(true);
+                        Aplicacion.this.materialTabbed1.setSelectedIndex(0);
                         break;
+                    
                     case 7:
-                    if (interAlumnos == null || interAlumnos.isClosed()) {
-                        interAlumnos = new InterPerfil(usuario);
-                        jDesktopPane1.add(interAlumnos);
-                    }
-                    interAlumnos.setVisible(true);
-                    try {
-                        interAlumnos.setSelected(true);
-                    } catch (java.beans.PropertyVetoException e) {
-                        e.printStackTrace();
-                    }
+                        Aplicacion.this.materialTabbed1.setSelectedIndex(1);
                         break;
                     case 9:
                         System.exit(0);
@@ -76,6 +78,8 @@ public class Aplicacion extends javax.swing.JFrame {
        
     }
 
+    // Llamar controladores
+   
     public void init() {
         GlassPanePopup.install(this);
     }
@@ -91,41 +95,468 @@ public class Aplicacion extends javax.swing.JFrame {
     private void initComponents() {
 
         menu = new Componentes.Menu();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        materialTabbed1 = new Componentes.MaterialTabbed();
+        jPanel2 = new javax.swing.JPanel();
+        btnCienciasNaturales = new Componentes.Button();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        btnHistoriaCienciasNaturales = new Componentes.Button();
+        jLabel16 = new javax.swing.JLabel();
+        btnImportanciaCiencias = new Componentes.Button();
+        jLabel17 = new javax.swing.JLabel();
+        btnRelacionCiencias = new Componentes.Button();
+        jLabel18 = new javax.swing.JLabel();
+        btnBiologia = new Componentes.Button();
+        jLabel19 = new javax.swing.JLabel();
+        btnQuimica = new Componentes.Button();
+        btnFisica = new Componentes.Button();
+        btnGeologia = new Componentes.Button();
+        btnAstronomia = new Componentes.Button();
+        btnMicrobiologia = new Componentes.Button();
+        btnQuimicaOrganica = new Componentes.Button();
+        btnVulcanologia = new Componentes.Button();
+        btnFisicaCuantica = new Componentes.Button();
+        btnMedicina = new Componentes.Button();
+        btnTecnologia = new Componentes.Button();
+        btnIndustria = new Componentes.Button();
+        btnMedioAmbiente = new Componentes.Button();
+        btnPausarCienciasNaturales = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        lblCienciasNaturales = new javax.swing.JLabel();
+        lblHistoriaCienciasNaturales = new javax.swing.JLabel();
+        lblImportanciaCiencias = new javax.swing.JLabel();
+        lblRelacionCiencias = new javax.swing.JLabel();
+        lblBiologia = new javax.swing.JLabel();
+        lblQuimica = new javax.swing.JLabel();
+        lblFisica = new javax.swing.JLabel();
+        lblGeologia = new javax.swing.JLabel();
+        lblAstronomia = new javax.swing.JLabel();
+        lblMicrobiologia = new javax.swing.JLabel();
+        lblQuimicaOr = new javax.swing.JLabel();
+        lblVulcanologia = new javax.swing.JLabel();
+        lblFisicaCuan = new javax.swing.JLabel();
+        lblMedicina = new javax.swing.JLabel();
+        lblTecnologia = new javax.swing.JLabel();
+        lblIndustria = new javax.swing.JLabel();
+        lblMedioAmbiente = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnEditarDatos = new javax.swing.JButton();
+        panelRound1 = new Componentes.PanelRound();
+        jLabel10 = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblNombreUsuario = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lblClave = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblPais = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lblSexo = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lblEstado = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        btnCuestionarioGame = new Componentes.Button();
+        btnUnirPareja = new Componentes.Button();
+        btnSopaLetraGames = new Componentes.Button();
+        btnConcursoGame = new Componentes.Button();
+        btnAnagramaGame = new Componentes.Button();
+        btnCrucigrama = new Componentes.Button();
+        btnSnake = new Componentes.Button();
+        btnAhorcado = new Componentes.Button();
+        btnRuleta = new Componentes.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jDesktopPane1.setBackground(new java.awt.Color(50, 50, 50));
+        materialTabbed1.setBackground(new java.awt.Color(30, 30, 30));
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 855, Short.MAX_VALUE)
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnCienciasNaturales.setText("Escuchar");
+        jPanel2.add(btnCienciasNaturales, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Ciencias Naturales indice tematico");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jLabel14.setText("¿Que son las ciencias naturales?");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        jLabel15.setText("Historia de las ciencias naturales");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+
+        btnHistoriaCienciasNaturales.setText("Escuchar");
+        jPanel2.add(btnHistoriaCienciasNaturales, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+
+        jLabel16.setText("Importancia de las ciencias naturales");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        btnImportanciaCiencias.setText("Escuchar");
+        jPanel2.add(btnImportanciaCiencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+
+        jLabel17.setText("Ciencias naturales y Bioquimica");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        btnRelacionCiencias.setText("Escuchar");
+        jPanel2.add(btnRelacionCiencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
+
+        jLabel18.setText("Ramas de las ciencias naturales");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+
+        btnBiologia.setText("Biología");
+        jPanel2.add(btnBiologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
+
+        jLabel19.setText("Aplicaciones de las ciencias naturales");
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, -1));
+
+        btnQuimica.setText("Química");
+        jPanel2.add(btnQuimica, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
+
+        btnFisica.setText("Física");
+        jPanel2.add(btnFisica, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
+
+        btnGeologia.setText("Geología");
+        jPanel2.add(btnGeologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
+
+        btnAstronomia.setText("Astronomía");
+        jPanel2.add(btnAstronomia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
+
+        btnMicrobiologia.setText("Microbiología");
+        jPanel2.add(btnMicrobiologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
+
+        btnQuimicaOrganica.setText("Química orgánica");
+        jPanel2.add(btnQuimicaOrganica, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, -1, -1));
+
+        btnVulcanologia.setText("Vulcanología");
+        jPanel2.add(btnVulcanologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, -1, -1));
+
+        btnFisicaCuantica.setText(" Física cuántica");
+        jPanel2.add(btnFisicaCuantica, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, -1, -1));
+
+        btnMedicina.setText("Medicina");
+        jPanel2.add(btnMedicina, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, -1, -1));
+
+        btnTecnologia.setText("Tecnología");
+        jPanel2.add(btnTecnologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, -1, -1));
+
+        btnIndustria.setText("Industria");
+        jPanel2.add(btnIndustria, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
+
+        btnMedioAmbiente.setText("Medio Ambiente");
+        jPanel2.add(btnMedioAmbiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, -1));
+
+        btnPausarCienciasNaturales.setText("Pausar");
+        jPanel2.add(btnPausarCienciasNaturales, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, -1, -1));
+
+        jButton2.setText("Siguientes concepto");
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/herbario.png"))); // NOI18N
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, -1, -1));
+
+        lblCienciasNaturales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblCienciasNaturales, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 94, -1, 30));
+
+        lblHistoriaCienciasNaturales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblHistoriaCienciasNaturales, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 174, -1, 30));
+
+        lblImportanciaCiencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblImportanciaCiencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 254, -1, 30));
+
+        lblRelacionCiencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblRelacionCiencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 334, -1, 30));
+
+        lblBiologia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblBiologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 84, -1, 30));
+
+        lblQuimica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblQuimica, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 134, -1, 30));
+
+        lblFisica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblFisica, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 184, -1, 30));
+
+        lblGeologia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblGeologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 234, -1, 30));
+
+        lblAstronomia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblAstronomia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, -1, 30));
+
+        lblMicrobiologia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblMicrobiologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, -1, 30));
+
+        lblQuimicaOr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblQuimicaOr, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, -1, 30));
+
+        lblVulcanologia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblVulcanologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, 30));
+
+        lblFisicaCuan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblFisicaCuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, -1, 30));
+
+        lblMedicina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblMedicina, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 94, -1, 30));
+
+        lblTecnologia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblTecnologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 144, -1, 30));
+
+        lblIndustria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblIndustria, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 194, -1, 30));
+
+        lblMedioAmbiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/informacion.png"))); // NOI18N
+        jPanel2.add(lblMedioAmbiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 244, -1, 30));
+
+        materialTabbed1.addTab("CienciasNaturales", jPanel2);
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Datos del Alumno");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 17, -1, -1));
+
+        btnEditarDatos.setText("Editar datos");
+        jPanel3.add(btnEditarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, -1, -1));
+
+        panelRound1.setBackground(new java.awt.Color(51, 142, 214));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+
+        jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Id:");
+
+        lblId.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblId.setForeground(new java.awt.Color(0, 0, 0));
+        lblId.setText("jLabel12");
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Nombre:");
+
+        lblNombreUsuario.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblNombreUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        lblNombreUsuario.setText("jLabel13");
+
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Apellido");
+
+        lblApellido.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(0, 0, 0));
+        lblApellido.setText("jLabel14");
+
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Usuario");
+
+        lblUsuario.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        lblUsuario.setText("jLabel15");
+
+        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Clave:");
+
+        lblClave.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblClave.setForeground(new java.awt.Color(0, 0, 0));
+        lblClave.setText("jLabel16");
+
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Pais");
+
+        lblPais.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblPais.setForeground(new java.awt.Color(0, 0, 0));
+        lblPais.setText("jLabel17");
+
+        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Sexo:");
+
+        lblSexo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblSexo.setForeground(new java.awt.Color(0, 0, 0));
+        lblSexo.setText("jLabel18");
+
+        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Estado");
+
+        lblEstado.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblEstado.setForeground(new java.awt.Color(0, 0, 0));
+        lblEstado.setText("jLabel19");
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Datos Generales");
+
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(61, 61, 61)
+                        .addComponent(lblId))
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEstado)
+                            .addComponent(lblSexo)
+                            .addComponent(lblPais)
+                            .addComponent(lblUsuario)
+                            .addComponent(lblApellido)
+                            .addComponent(lblNombreUsuario)
+                            .addComponent(lblClave)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(lblId))
+                .addGap(12, 12, 12)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lblNombreUsuario))
+                .addGap(18, 18, 18)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lblApellido))
+                .addGap(27, 27, 27)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(lblUsuario))
+                .addGap(27, 27, 27)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lblClave))
+                .addGap(29, 29, 29)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(lblPais))
+                .addGap(27, 27, 27)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(lblSexo))
+                .addGap(33, 33, 33)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(lblEstado))
+                .addGap(15, 15, 15))
         );
+
+        jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
+
+        materialTabbed1.addTab("Mi perfil", jPanel3);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Elige uno de los videojuegos y diviertete");
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+
+        btnCuestionarioGame.setForeground(new java.awt.Color(0, 0, 0));
+        btnCuestionarioGame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cuestionario.png"))); // NOI18N
+        btnCuestionarioGame.setText("Cuestionario");
+        btnCuestionarioGame.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel4.add(btnCuestionarioGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+
+        btnUnirPareja.setForeground(new java.awt.Color(0, 0, 0));
+        btnUnirPareja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/trabajo-en-equipo.png"))); // NOI18N
+        btnUnirPareja.setText("Une alas parejas");
+        btnUnirPareja.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel4.add(btnUnirPareja, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
+
+        btnSopaLetraGames.setForeground(new java.awt.Color(0, 0, 0));
+        btnSopaLetraGames.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/sopaLetras.png"))); // NOI18N
+        btnSopaLetraGames.setText("Sopa de letras");
+        btnSopaLetraGames.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel4.add(btnSopaLetraGames, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, 60));
+
+        btnConcursoGame.setForeground(new java.awt.Color(0, 0, 0));
+        btnConcursoGame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/examen.png"))); // NOI18N
+        btnConcursoGame.setText("Concurso de preguntas");
+        btnConcursoGame.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel4.add(btnConcursoGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
+
+        btnAnagramaGame.setForeground(new java.awt.Color(0, 0, 0));
+        btnAnagramaGame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/anagrama.png"))); // NOI18N
+        btnAnagramaGame.setText("Anagrama");
+        btnAnagramaGame.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel4.add(btnAnagramaGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, -1, -1));
+
+        btnCrucigrama.setForeground(new java.awt.Color(0, 0, 0));
+        btnCrucigrama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/crucigrama.png"))); // NOI18N
+        btnCrucigrama.setText("Crucigrama");
+        btnCrucigrama.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel4.add(btnCrucigrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, -1, -1));
+
+        btnSnake.setForeground(new java.awt.Color(0, 0, 0));
+        btnSnake.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/serpiente.png"))); // NOI18N
+        btnSnake.setText("Snake");
+        btnSnake.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel4.add(btnSnake, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+
+        btnAhorcado.setForeground(new java.awt.Color(0, 0, 0));
+        btnAhorcado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/juego-del-ahorcado.png"))); // NOI18N
+        btnAhorcado.setText("Ahorcado");
+        btnAhorcado.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel4.add(btnAhorcado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
+
+        btnRuleta.setForeground(new java.awt.Color(0, 0, 0));
+        btnRuleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ruleta.png"))); // NOI18N
+        btnRuleta.setText("Ruleta");
+        btnRuleta.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel4.add(btnRuleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, -1, -1));
+
+        materialTabbed1.addTab("Juegos", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(materialTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, 861, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1)
+                .addComponent(materialTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -151,8 +582,85 @@ public class Aplicacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private Componentes.Button btnAhorcado;
+    private Componentes.Button btnAnagramaGame;
+    public Componentes.Button btnAstronomia;
+    public Componentes.Button btnBiologia;
+    public Componentes.Button btnCienciasNaturales;
+    private Componentes.Button btnConcursoGame;
+    private Componentes.Button btnCrucigrama;
+    private Componentes.Button btnCuestionarioGame;
+    private javax.swing.JButton btnEditarDatos;
+    public Componentes.Button btnFisica;
+    public Componentes.Button btnFisicaCuantica;
+    public Componentes.Button btnGeologia;
+    public Componentes.Button btnHistoriaCienciasNaturales;
+    public Componentes.Button btnImportanciaCiencias;
+    public Componentes.Button btnIndustria;
+    public Componentes.Button btnMedicina;
+    public Componentes.Button btnMedioAmbiente;
+    public Componentes.Button btnMicrobiologia;
+    public javax.swing.JButton btnPausarCienciasNaturales;
+    public Componentes.Button btnQuimica;
+    public Componentes.Button btnQuimicaOrganica;
+    public Componentes.Button btnRelacionCiencias;
+    private Componentes.Button btnRuleta;
+    private Componentes.Button btnSnake;
+    private Componentes.Button btnSopaLetraGames;
+    public Componentes.Button btnTecnologia;
+    private Componentes.Button btnUnirPareja;
+    public Componentes.Button btnVulcanologia;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblApellido;
+    public javax.swing.JLabel lblAstronomia;
+    public javax.swing.JLabel lblBiologia;
+    public javax.swing.JLabel lblCienciasNaturales;
+    private javax.swing.JLabel lblClave;
+    private javax.swing.JLabel lblEstado;
+    public javax.swing.JLabel lblFisica;
+    public javax.swing.JLabel lblFisicaCuan;
+    public javax.swing.JLabel lblGeologia;
+    public javax.swing.JLabel lblHistoriaCienciasNaturales;
+    private javax.swing.JLabel lblId;
+    public javax.swing.JLabel lblImportanciaCiencias;
+    public javax.swing.JLabel lblIndustria;
+    public javax.swing.JLabel lblMedicina;
+    public javax.swing.JLabel lblMedioAmbiente;
+    public javax.swing.JLabel lblMicrobiologia;
+    private javax.swing.JLabel lblNombreUsuario;
+    private javax.swing.JLabel lblPais;
+    public javax.swing.JLabel lblQuimica;
+    public javax.swing.JLabel lblQuimicaOr;
+    public javax.swing.JLabel lblRelacionCiencias;
+    private javax.swing.JLabel lblSexo;
+    public javax.swing.JLabel lblTecnologia;
+    private javax.swing.JLabel lblUsuario;
+    public javax.swing.JLabel lblVulcanologia;
+    private Componentes.MaterialTabbed materialTabbed1;
     private Componentes.Menu menu;
+    private Componentes.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 
     

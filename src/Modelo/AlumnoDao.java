@@ -37,4 +37,24 @@ public class AlumnoDao {
         }
         return al;
     }
+
+    // Metodo para registrar alumnos
+    public boolean registrar(Alumno al) {
+        String sql = "INSERT INTO alumnos (nombre, apellido, usuario, clave, pais, sexo) VALUES (?,?,?,?,?,?)";
+        try {
+            con = cn.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, al.getNombre());
+            ps.setString(2, al.getApellido());
+            ps.setString(3, al.getUsuario());
+            ps.setString(4, al.getClave());
+            ps.setString(5, al.getPais());
+            ps.setString(6, al.getSexo());
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+           JOptionPane.showMessageDialog(null, e.toString());
+        }
+        return false;
+    }
 }
