@@ -54,6 +54,7 @@ public class CienciasController implements ActionListener, MouseListener {
         this.ciencia.lblCienciasNaturales.addMouseListener(this);
         this.ciencia.lblHistoriaCienciasNaturales.addMouseListener(this);
         this.ciencia.lblImportanciaCiencias.addMouseListener(this);
+        this.ciencia.lblRelacionCiencias.addMouseListener(this);
         this.ciencia.lblBiologia.addMouseListener(this);
         this.ciencia.lblQuimica.addMouseListener(this);
         this.ciencia.lblFisica.addMouseListener(this);
@@ -67,6 +68,7 @@ public class CienciasController implements ActionListener, MouseListener {
         this.ciencia.lblTecnologia.addMouseListener(this);
         this.ciencia.lblMedioAmbiente.addMouseListener(this);
         this.ciencia.lblIndustria.addMouseListener(this);
+        
     }
 
 
@@ -142,13 +144,14 @@ public class CienciasController implements ActionListener, MouseListener {
 
     private void playSound(String filePath) {
         try {
-            File audioFile = new File(getClass().getResource(filePath).getFile());
-            AudioInputStream audioStream = null;
-            try {
-                audioStream = AudioSystem.getAudioInputStream(audioFile);
-            } catch (IOException ex) {
-                Logger.getLogger(CienciasController.class.getName()).log(Level.SEVERE, null, ex);
+            if (audioClip != null) {
+                audioClip.stop();
+                audioClip.close();
+                isPaused = false;
+                ciencia.btnPausarCienciasNaturales.setText("PAUSAR");
             }
+            File audioFile = new File(getClass().getResource(filePath).getFile());
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
             audioClip = AudioSystem.getClip();
             audioClip.open(audioStream);
             audioClip.start();
@@ -161,24 +164,6 @@ public class CienciasController implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-   }
-
-
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-    }
-
-
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-    }
-
-
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
         if (e.getSource() == ciencia.lblCienciasNaturales) {
             JOptionPane.showMessageDialog(ciencia, " Las ciencias naturales son disciplinas científicas que estudian los fenómenos \r\n" + //
                                 "de la naturaleza. Se enfocan en la observación, descripción, comprensión y predicción de \r\n" + //
@@ -296,6 +281,24 @@ public class CienciasController implements ActionListener, MouseListener {
                                                                         "permiten mejorar la eficiencia, seguridad y sostenibilidad en la producción industrial y la \r\n" + //
                                                                         "gestión de recursos.", "Industria", JOptionPane.INFORMATION_MESSAGE);
         }
+    }
+
+
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
     }
 
 

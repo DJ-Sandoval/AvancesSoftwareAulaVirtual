@@ -7,8 +7,11 @@ import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 import Controlador.CienciasController;
 import Controlador.LoginController;
+import Controlador.PanelPerfilController;
 import Event.MenuEvent;
 import Modelo.Alumno;
+import Modelo.AlumnoBuilder;
+import Modelo.AlumnoDao;
 import raven.alerts.MessageAlerts;
 import raven.popup.GlassPanePopup;
 
@@ -16,6 +19,7 @@ import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 
@@ -26,7 +30,11 @@ import javax.swing.UIManager;
 public class Aplicacion extends javax.swing.JFrame {
     // Variables para controlador login
     private Alumno usuario;
+    private AlumnoDao alDao;
 
+    
+
+    
     /**
      * Creates new form Aplicacion
      */
@@ -37,20 +45,19 @@ public class Aplicacion extends javax.swing.JFrame {
         this.setTitle("AulaVirtual 1.1 - [Inicio]");
         ImageIcon icon = new ImageIcon(getClass().getResource("/Img/aprender-en-linea.png"));
         setIconImage(icon.getImage());
+        txtId.setText("" + usuario.getId());
+            txtNombre.setText("" + usuario.getNombre());
+            txtApellido.setText("" + usuario.getApellido());
+            txtUsuario.setText("" + usuario.getUsuario());
+            txtClave.setText("" + usuario.getClave());
+            txtPais.setText("" + usuario.getPais());
+            txtSexo.setText("" + usuario.getSexo());
+            txtEstado.setText("" + usuario.getEstado());
 
-
-        lblId.setText(""+usuario.getId());
-        lblNombreUsuario.setText(""+usuario.getNombre());
-        lblApellido.setText(""+usuario.getApellido());
-        lblUsuario.setText(""+usuario.getUsuario());
-        lblClave.setText(""+usuario.getClave());
-        lblPais.setText(""+usuario.getPais());
-        lblSexo.setText(""+usuario.getSexo());
-        lblEstado.setText(""+usuario.getEstado());
         // Iniciar mensaje
        init();
         CienciasController ciencias = new CienciasController(this); 
-    
+        PanelPerfilController perfil = new PanelPerfilController(usuario, alDao, this);
         // Iniciar menu
         MenuEvent event = new MenuEvent() {
             @Override
@@ -59,6 +66,9 @@ public class Aplicacion extends javax.swing.JFrame {
                 switch (index) {
                     case 0:
                         Aplicacion.this.materialTabbed1.setSelectedIndex(2);
+                        break;
+                    case 1:
+                        Aplicacion.this.materialTabbed1.setSelectedIndex(3);
                         break;
                     case 4:
                         Aplicacion.this.materialTabbed1.setSelectedIndex(0);
@@ -143,25 +153,25 @@ public class Aplicacion extends javax.swing.JFrame {
         lblMedioAmbiente = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnEditarDatos = new javax.swing.JButton();
         panelRound1 = new Componentes.PanelRound();
         jLabel10 = new javax.swing.JLabel();
-        lblId = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lblNombreUsuario = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        lblApellido = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lblUsuario = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        lblClave = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        lblPais = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        lblSexo = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        lblEstado = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
+        txtClave = new javax.swing.JPasswordField();
+        txtEstado = new javax.swing.JTextField();
+        txtPais = new javax.swing.JTextField();
+        txtSexo = new javax.swing.JTextField();
+        btnEditarDatos = new Componentes.Button();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         btnCuestionarioGame = new Componentes.Button();
@@ -173,6 +183,50 @@ public class Aplicacion extends javax.swing.JFrame {
         btnSnake = new Componentes.Button();
         btnAhorcado = new Componentes.Button();
         btnRuleta = new Componentes.Button();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        button1 = new Componentes.Button();
+        button3 = new Componentes.Button();
+        button4 = new Componentes.Button();
+        button5 = new Componentes.Button();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -323,9 +377,6 @@ public class Aplicacion extends javax.swing.JFrame {
         jLabel1.setText("Datos del Alumno");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 17, -1, -1));
 
-        btnEditarDatos.setText("Editar datos");
-        jPanel3.add(btnEditarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, -1, -1));
-
         panelRound1.setBackground(new java.awt.Color(51, 142, 214));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
@@ -336,69 +387,71 @@ public class Aplicacion extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Id:");
 
-        lblId.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblId.setForeground(new java.awt.Color(0, 0, 0));
-        lblId.setText("jLabel12");
-
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre:");
 
-        lblNombreUsuario.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblNombreUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        lblNombreUsuario.setText("jLabel13");
-
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Apellido");
-
-        lblApellido.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblApellido.setForeground(new java.awt.Color(0, 0, 0));
-        lblApellido.setText("jLabel14");
+        jLabel4.setText("Apellido:");
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Usuario");
-
-        lblUsuario.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        lblUsuario.setText("jLabel15");
+        jLabel5.setText("Usuario:");
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Clave:");
 
-        lblClave.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblClave.setForeground(new java.awt.Color(0, 0, 0));
-        lblClave.setText("jLabel16");
-
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Pais");
-
-        lblPais.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblPais.setForeground(new java.awt.Color(0, 0, 0));
-        lblPais.setText("jLabel17");
+        jLabel7.setText("Pais:");
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Sexo:");
 
-        lblSexo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblSexo.setForeground(new java.awt.Color(0, 0, 0));
-        lblSexo.setText("jLabel18");
-
         jLabel9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Estado");
-
-        lblEstado.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblEstado.setForeground(new java.awt.Color(0, 0, 0));
-        lblEstado.setText("jLabel19");
+        jLabel9.setText("Estado:");
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Datos Generales");
+
+        txtId.setEditable(false);
+        txtId.setBackground(new java.awt.Color(30, 30, 30));
+        txtId.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtId.setForeground(new java.awt.Color(255, 255, 255));
+        txtId.setText("1");
+
+        txtNombre.setBackground(new java.awt.Color(30, 30, 30));
+        txtNombre.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtApellido.setBackground(new java.awt.Color(30, 30, 30));
+        txtApellido.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtApellido.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtUsuario.setBackground(new java.awt.Color(30, 30, 30));
+        txtUsuario.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtClave.setBackground(new java.awt.Color(30, 30, 30));
+        txtClave.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtClave.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtEstado.setBackground(new java.awt.Color(30, 30, 30));
+        txtEstado.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtEstado.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtPais.setBackground(new java.awt.Color(30, 30, 30));
+        txtPais.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtPais.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtSexo.setBackground(new java.awt.Color(30, 30, 30));
+        txtSexo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtSexo.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -407,72 +460,85 @@ public class Aplicacion extends javax.swing.JFrame {
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(61, 61, 61)
-                        .addComponent(lblId))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelRound1Layout.createSequentialGroup()
                         .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel9))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEstado)
-                            .addComponent(lblSexo)
-                            .addComponent(lblPais)
-                            .addComponent(lblUsuario)
-                            .addComponent(lblApellido)
-                            .addComponent(lblNombreUsuario)
-                            .addComponent(lblClave)))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(220, Short.MAX_VALUE))
+                            .addComponent(txtClave)
+                            .addComponent(txtEstado)
+                            .addComponent(txtPais)
+                            .addComponent(txtSexo)
+                            .addComponent(txtApellido)
+                            .addComponent(txtUsuario)
+                            .addGroup(panelRound1Layout.createSequentialGroup()
+                                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(53, 53, 53))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(lblId))
-                .addGap(12, 12, 12)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(lblNombreUsuario))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(lblApellido))
-                .addGap(27, 27, 27)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(lblUsuario))
-                .addGap(27, 27, 27)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(lblClave))
-                .addGap(29, 29, 29)
+                    .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(lblPais))
-                .addGap(27, 27, 27)
+                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(lblSexo))
-                .addGap(33, 33, 33)
+                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(lblEstado))
-                .addGap(15, 15, 15))
+                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
+        jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 410, 440));
+
+        btnEditarDatos.setForeground(new java.awt.Color(0, 0, 0));
+        btnEditarDatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/editar-perfil.png"))); // NOI18N
+        btnEditarDatos.setText("Editar mis datos");
+        btnEditarDatos.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnEditarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarDatosActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnEditarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
 
         materialTabbed1.addTab("Mi perfil", jPanel3);
 
@@ -539,6 +605,206 @@ public class Aplicacion extends javax.swing.JFrame {
 
         materialTabbed1.addTab("Juegos", jPanel4);
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Elige un tema de tu agrado");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
+
+        button1.setForeground(new java.awt.Color(0, 0, 0));
+        button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/laboratorio.png"))); // NOI18N
+        button1.setText("Ciencias Naturales");
+        button1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel1.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
+        button3.setForeground(new java.awt.Color(0, 0, 0));
+        button3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/una (1).png"))); // NOI18N
+        button3.setText("Vocales y letras");
+        button3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel1.add(button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 220, -1));
+
+        button4.setForeground(new java.awt.Color(0, 0, 0));
+        button4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/quetzalcoatl.png"))); // NOI18N
+        button4.setText("Cultura y historia");
+        button4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel1.add(button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 220, -1));
+
+        button5.setForeground(new java.awt.Color(0, 0, 0));
+        button5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/herramientas.png"))); // NOI18N
+        button5.setText("Matematicas basicas");
+        button5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel1.add(button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, 240, -1));
+
+        jLabel22.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Contenido");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("1. El Cuerpo Humano");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("2. Plantas y animales");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("3. El medio ambiente");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("4. Fenómenos Naturales");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+
+        jLabel27.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("Contenido");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("1. Vocales y Consonantes");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("2. Formación de palabras");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("3. Lectura y Comprensión");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("4. Gramática Básica");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Contenido");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 130, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("1. Tradiciones y fiestas");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, -1, -1));
+
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("2. Historia y Personajes");
+        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("3. Arte y Música");
+        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("4. Geografía Básica");
+        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setText("Contenido");
+        jPanel1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, -1, -1));
+
+        jLabel39.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel39.setText("1. Números y Contar");
+        jPanel1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, -1, -1));
+
+        jLabel40.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("2. Operaciones Básicas");
+        jPanel1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 440, -1, -1));
+
+        jLabel41.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("3. Geometría Básica");
+        jPanel1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 470, -1, -1));
+
+        jLabel42.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel42.setText("4. Conceptos de Tiempo y $");
+        jPanel1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 500, -1, -1));
+
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
+
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, -1));
+
+        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, -1, -1));
+
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
+
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, -1, -1));
+
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, -1, -1));
+
+        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, -1, -1));
+
+        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, -1, -1));
+
+        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, -1, -1));
+
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, -1, -1));
+
+        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, -1, -1));
+
+        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, -1, -1));
+
+        jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 470, -1, -1));
+
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, -1, -1));
+
+        jLabel57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
+        jPanel1.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, -1, -1));
+
+        jPanel5.setPreferredSize(new java.awt.Dimension(210, 210));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/lectura (1).gif"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel21))
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 200, -1));
+
+        materialTabbed1.addTab("Libros Electronicos", jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -546,7 +812,7 @@ public class Aplicacion extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(materialTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, 861, Short.MAX_VALUE)
+                .addComponent(materialTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -562,6 +828,43 @@ public class Aplicacion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEditarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDatosActionPerformed
+         // Capturar datos modificados
+    String nombre = txtNombre.getText();
+    String apellido = txtApellido.getText();
+    String usuarioText = txtUsuario.getText();
+    String clave = txtClave.getText();
+    String pais = txtPais.getText();
+    String sexo = txtSexo.getText();
+    String estado = txtEstado.getText(); // Asegúrate de tener este campo en tu interfaz gráfica
+    
+      // Crear objeto Alumno con datos modificados usando AlumnoBuilder
+    Alumno alumnoModificado = new AlumnoBuilder()
+            .setId(usuario.getId())
+            .setNombre(nombre)
+            .setApellido(apellido)
+            .setUsuario(usuarioText)
+            .setClave(clave)
+            .setPais(pais)
+            .setSexo(sexo)
+            .setEstado(estado)
+            .build();
+
+    // Llamar al método modificar del DAO
+    AlumnoDao alumnoDao = new AlumnoDao();
+    String resultado = alumnoDao.modificar(alumnoModificado);
+
+    // Mostrar resultado
+    if (resultado.equals("modificado")) {
+        JOptionPane.showMessageDialog(this, "Datos modificados correctamente.");
+    } else if (resultado.equals("existe")) {
+        JOptionPane.showMessageDialog(this, "El alumno con esos datos ya existe.");
+    } else {
+        JOptionPane.showMessageDialog(this, "Error al modificar los datos.");
+    }
+    
+    }//GEN-LAST:event_btnEditarDatosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -590,7 +893,7 @@ public class Aplicacion extends javax.swing.JFrame {
     private Componentes.Button btnConcursoGame;
     private Componentes.Button btnCrucigrama;
     private Componentes.Button btnCuestionarioGame;
-    private javax.swing.JButton btnEditarDatos;
+    public Componentes.Button btnEditarDatos;
     public Componentes.Button btnFisica;
     public Componentes.Button btnFisicaCuantica;
     public Componentes.Button btnGeologia;
@@ -610,9 +913,14 @@ public class Aplicacion extends javax.swing.JFrame {
     public Componentes.Button btnTecnologia;
     private Componentes.Button btnUnirPareja;
     public Componentes.Button btnVulcanologia;
+    private Componentes.Button button1;
+    private Componentes.Button button3;
+    private Componentes.Button button4;
+    private Componentes.Button button5;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -623,44 +931,83 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JLabel lblApellido;
+    private javax.swing.JPanel jPanel5;
     public javax.swing.JLabel lblAstronomia;
     public javax.swing.JLabel lblBiologia;
     public javax.swing.JLabel lblCienciasNaturales;
-    private javax.swing.JLabel lblClave;
-    private javax.swing.JLabel lblEstado;
     public javax.swing.JLabel lblFisica;
     public javax.swing.JLabel lblFisicaCuan;
     public javax.swing.JLabel lblGeologia;
     public javax.swing.JLabel lblHistoriaCienciasNaturales;
-    private javax.swing.JLabel lblId;
     public javax.swing.JLabel lblImportanciaCiencias;
     public javax.swing.JLabel lblIndustria;
     public javax.swing.JLabel lblMedicina;
     public javax.swing.JLabel lblMedioAmbiente;
     public javax.swing.JLabel lblMicrobiologia;
-    private javax.swing.JLabel lblNombreUsuario;
-    private javax.swing.JLabel lblPais;
     public javax.swing.JLabel lblQuimica;
     public javax.swing.JLabel lblQuimicaOr;
     public javax.swing.JLabel lblRelacionCiencias;
-    private javax.swing.JLabel lblSexo;
     public javax.swing.JLabel lblTecnologia;
-    private javax.swing.JLabel lblUsuario;
     public javax.swing.JLabel lblVulcanologia;
     private Componentes.MaterialTabbed materialTabbed1;
     private Componentes.Menu menu;
     private Componentes.PanelRound panelRound1;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JPasswordField txtClave;
+    private javax.swing.JTextField txtEstado;
+    public javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPais;
+    private javax.swing.JTextField txtSexo;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
     

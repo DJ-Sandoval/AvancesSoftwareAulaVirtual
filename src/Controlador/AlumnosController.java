@@ -24,6 +24,7 @@ public AlumnosController(Alumno al, AlumnoDao alDao, frmCrearAlumno vista) {
     this.vista.btnSaveAlumno.addActionListener(this);
     this.vista.btnCancelar.addActionListener(this);
     this.vista.txtNombre.addKeyListener(this);
+    
    
 }
 
