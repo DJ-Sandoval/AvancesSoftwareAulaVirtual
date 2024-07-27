@@ -5,5 +5,12 @@
         "Interactivos",
         "Juegos"
     ],
-    "cSpell.language": "en,es-ES"
+    "cSpell.language": "en,es-ES",
+    "DockerRun.DisableDockerrc": true,
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "src/com/jose/IconGameParejas/pdfbox-3.0.2.jar",
+        "src/com/jose/IconGameParejas/pdfbox-app-3.0.2.jar",
+        "src/com/jose/IconGameParejas/pdfbox-io-3.0.2.jar"
+    ]
 }

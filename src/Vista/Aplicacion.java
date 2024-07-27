@@ -185,48 +185,32 @@ public class Aplicacion extends javax.swing.JFrame {
         btnRuleta = new Componentes.Button();
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        button1 = new Componentes.Button();
-        button3 = new Componentes.Button();
-        button4 = new Componentes.Button();
-        button5 = new Componentes.Button();
-        jLabel22 = new javax.swing.JLabel();
+        panelGlowingGradient1 = new Componentes.PanelGlowingGradient();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        button1 = new Componentes.Button();
+        panelGlowingGradient2 = new Componentes.PanelGlowingGradient();
+        jLabel24 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
+        button2 = new Componentes.Button();
+        panelGlowingGradient3 = new Componentes.PanelGlowingGradient();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        button3 = new Componentes.Button();
         jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -605,203 +589,137 @@ public class Aplicacion extends javax.swing.JFrame {
 
         materialTabbed1.addTab("Juegos", jPanel4);
 
+        jPanel1.setBackground(new java.awt.Color(20, 20, 20));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Elige un tema de tu agrado");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
-
-        button1.setForeground(new java.awt.Color(0, 0, 0));
-        button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/laboratorio.png"))); // NOI18N
-        button1.setText("Ciencias Naturales");
-        button1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jPanel1.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
-
-        button3.setForeground(new java.awt.Color(0, 0, 0));
-        button3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/una (1).png"))); // NOI18N
-        button3.setText("Vocales y letras");
-        button3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jPanel1.add(button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 220, -1));
-
-        button4.setForeground(new java.awt.Color(0, 0, 0));
-        button4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/quetzalcoatl.png"))); // NOI18N
-        button4.setText("Cultura y historia");
-        button4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jPanel1.add(button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 220, -1));
-
-        button5.setForeground(new java.awt.Color(0, 0, 0));
-        button5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/herramientas.png"))); // NOI18N
-        button5.setText("Matematicas basicas");
-        button5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jPanel1.add(button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, 240, -1));
-
-        jLabel22.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Contenido");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+        jLabel11.setText("Bienvenido ala biblioteca virtual");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("1. El Cuerpo Humano");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        jLabel23.setText("Ciencias Naturales");
+        panelGlowingGradient1.add(jLabel23);
+        jLabel23.setBounds(50, 30, 140, 19);
 
-        jLabel24.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel26.setText("1. El cuerpo humano");
+        panelGlowingGradient1.add(jLabel26);
+        jLabel26.setBounds(30, 90, 180, 16);
+
+        jLabel27.setText("2. Plantas y Animales");
+        panelGlowingGradient1.add(jLabel27);
+        jLabel27.setBounds(30, 110, 170, 16);
+
+        jLabel28.setText("3. El medio ambiente");
+        panelGlowingGradient1.add(jLabel28);
+        jLabel28.setBounds(30, 130, 120, 16);
+
+        jLabel29.setText("Temas previos");
+        panelGlowingGradient1.add(jLabel29);
+        jLabel29.setBounds(70, 50, 90, 16);
+
+        jLabel30.setText("4. Fenómenos Naturales");
+        panelGlowingGradient1.add(jLabel30);
+        jLabel30.setBounds(30, 150, 130, 16);
+
+        button1.setBackground(new java.awt.Color(82, 92, 235));
+        button1.setForeground(new java.awt.Color(255, 255, 255));
+        button1.setText("Catálogos");
+        button1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        panelGlowingGradient1.add(button1);
+        button1.setBounds(60, 210, 100, 43);
+
+        jPanel1.add(panelGlowingGradient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 240, 290));
+
+        panelGlowingGradient2.setGradientColor1(new java.awt.Color(0, 255, 61));
+        panelGlowingGradient2.setGradientColor2(new java.awt.Color(131, 0, 255));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("2. Plantas y animales");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        jLabel24.setText("Vocales, Letras y Español");
+        panelGlowingGradient2.add(jLabel24);
+        jLabel24.setBounds(30, 30, 180, 17);
 
-        jLabel25.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel31.setText("Temas previos");
+        panelGlowingGradient2.add(jLabel31);
+        jLabel31.setBounds(80, 50, 90, 16);
+
+        jLabel33.setText("1. Vocales y Consonantes");
+        panelGlowingGradient2.add(jLabel33);
+        jLabel33.setBounds(30, 90, 140, 16);
+
+        jLabel34.setText("2. Formación de Palabras");
+        panelGlowingGradient2.add(jLabel34);
+        jLabel34.setBounds(30, 110, 140, 16);
+
+        jLabel35.setText("3. Lectura y Comprensión");
+        panelGlowingGradient2.add(jLabel35);
+        jLabel35.setBounds(30, 130, 140, 16);
+
+        jLabel36.setText("4. Gramática Básica");
+        panelGlowingGradient2.add(jLabel36);
+        jLabel36.setBounds(30, 150, 110, 16);
+
+        button2.setBackground(new java.awt.Color(82, 92, 235));
+        button2.setForeground(new java.awt.Color(255, 255, 255));
+        button2.setText("Catálogos");
+        button2.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        panelGlowingGradient2.add(button2);
+        button2.setBounds(70, 210, 100, 43);
+
+        jPanel1.add(panelGlowingGradient2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 240, 290));
+
+        panelGlowingGradient3.setGradientColor1(new java.awt.Color(255, 255, 0));
+        panelGlowingGradient3.setGradientColor2(new java.awt.Color(102, 255, 102));
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("3. El medio ambiente");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        jLabel25.setText("Matemáticas");
+        panelGlowingGradient3.add(jLabel25);
+        jLabel25.setBounds(70, 30, 100, 17);
 
-        jLabel26.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("4. Fenómenos Naturales");
-        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+        jLabel32.setText("Temas previos");
+        panelGlowingGradient3.add(jLabel32);
+        jLabel32.setBounds(80, 50, 90, 16);
 
-        jLabel27.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel27.setText("Contenido");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
+        jLabel37.setText("1. Números y Contar");
+        panelGlowingGradient3.add(jLabel37);
+        jLabel37.setBounds(30, 90, 120, 16);
 
-        jLabel28.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setText("1. Vocales y Consonantes");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+        jLabel38.setText("2. Operaciones Básicas");
+        panelGlowingGradient3.add(jLabel38);
+        jLabel38.setBounds(30, 110, 130, 16);
 
-        jLabel29.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel29.setText("2. Formación de palabras");
-        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, -1, -1));
+        jLabel39.setText("3. Geometría Básica");
+        panelGlowingGradient3.add(jLabel39);
+        jLabel39.setBounds(30, 130, 110, 16);
 
-        jLabel30.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel30.setText("3. Lectura y Comprensión");
-        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, -1, -1));
+        jLabel40.setText("4. Conceptos de Tiempo y Dinero");
+        panelGlowingGradient3.add(jLabel40);
+        jLabel40.setBounds(30, 150, 180, 16);
 
-        jLabel31.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel31.setText("4. Gramática Básica");
-        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
+        button3.setBackground(new java.awt.Color(82, 92, 235));
+        button3.setForeground(new java.awt.Color(255, 255, 255));
+        button3.setText("Catálogos");
+        button3.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        panelGlowingGradient3.add(button3);
+        button3.setBounds(70, 210, 100, 43);
 
-        jLabel32.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel32.setText("Contenido");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 130, -1, -1));
+        jPanel1.add(panelGlowingGradient3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 240, 290));
 
-        jLabel33.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("1. Tradiciones y fiestas");
-        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, -1, -1));
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/flecha.png"))); // NOI18N
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
 
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
-
-        jLabel35.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35.setText("2. Historia y Personajes");
-        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, -1, -1));
-
-        jLabel36.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("3. Arte y Música");
-        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
-
-        jLabel37.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel37.setText("4. Geografía Básica");
-        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, -1, -1));
-
-        jLabel38.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel38.setText("Contenido");
-        jPanel1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, -1, -1));
-
-        jLabel39.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel39.setText("1. Números y Contar");
-        jPanel1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, -1, -1));
-
-        jLabel40.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel40.setText("2. Operaciones Básicas");
-        jPanel1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 440, -1, -1));
-
-        jLabel41.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel41.setText("3. Geometría Básica");
-        jPanel1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 470, -1, -1));
-
-        jLabel42.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel42.setText("4. Conceptos de Tiempo y $");
-        jPanel1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 500, -1, -1));
-
-        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
-
-        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, -1));
-
-        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, -1, -1));
-
-        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
-
-        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, -1, -1));
-
-        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, -1, -1));
-
-        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, -1, -1));
-
-        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, -1, -1));
-
-        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, -1, -1));
-
-        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, -1, -1));
-
-        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, -1, -1));
-
-        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, -1, -1));
-
-        jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 470, -1, -1));
-
-        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, -1, -1));
-
-        jLabel57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo.png"))); // NOI18N
-        jPanel1.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, -1, -1));
-
-        jPanel5.setPreferredSize(new java.awt.Dimension(210, 210));
-
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/lectura (1).gif"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel21))
-        );
-
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 200, -1));
+        jLabel22.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Explora los contenidos y diviertete leyendo los libros que ofrecemos.");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
 
         materialTabbed1.addTab("Libros Electronicos", jPanel1);
 
@@ -866,6 +784,11 @@ public class Aplicacion extends javax.swing.JFrame {
     
     }//GEN-LAST:event_btnEditarDatosActionPerformed
 
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        CatalogoCienciasNaturales cata = new CatalogoCienciasNaturales(usuario);
+        cata.setVisible(true);
+    }//GEN-LAST:event_button1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -914,9 +837,8 @@ public class Aplicacion extends javax.swing.JFrame {
     private Componentes.Button btnUnirPareja;
     public Componentes.Button btnVulcanologia;
     private Componentes.Button button1;
+    private Componentes.Button button2;
     private Componentes.Button button3;
-    private Componentes.Button button4;
-    private Componentes.Button button5;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -953,24 +875,7 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -979,7 +884,6 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     public javax.swing.JLabel lblAstronomia;
     public javax.swing.JLabel lblBiologia;
     public javax.swing.JLabel lblCienciasNaturales;
@@ -999,6 +903,9 @@ public class Aplicacion extends javax.swing.JFrame {
     public javax.swing.JLabel lblVulcanologia;
     private Componentes.MaterialTabbed materialTabbed1;
     private Componentes.Menu menu;
+    private Componentes.PanelGlowingGradient panelGlowingGradient1;
+    private Componentes.PanelGlowingGradient panelGlowingGradient2;
+    private Componentes.PanelGlowingGradient panelGlowingGradient3;
     private Componentes.PanelRound panelRound1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JPasswordField txtClave;
